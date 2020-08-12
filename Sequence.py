@@ -38,81 +38,84 @@ while True:
     # Card slots lines
 
     vertical_line_adder = 150
-    horizontal_line_adder = 150
+    horizontal_line_adder = 133
 
-    for _ in range(7):
+    for _ in range(6):
         pg.draw.line(screen, cool_grey,
                      (vertical_line_adder, 50), (vertical_line_adder, 550), 4)
         vertical_line_adder += 100
 
-    for _ in range(7):
+    for _ in range(5):
         pg.draw.line(screen, cool_grey,
                      (50, horizontal_line_adder), (750, horizontal_line_adder),
                      4)
-        horizontal_line_adder += 100
+        horizontal_line_adder += 84
 
     # IDK how to make this more efficient
 
-    # # Free Spaces
-    # pg.draw.circle(screen, cool_blue, (100, 100), 35, 10)
-    # pg.draw.circle(screen, cool_blue, (100, 500), 35, 10)
-    # pg.draw.circle(screen, cool_blue, (700, 100), 35, 10)
-    # pg.draw.circle(screen, cool_blue, (700, 500), 35, 10)
+    # Free Spaces
+    pg.draw.circle(screen, cool_blue, (100, 94), 25, 7)
+    pg.draw.circle(screen, cool_blue, (100, 512), 25, 7)
+    pg.draw.circle(screen, cool_blue, (700, 94), 25, 7)
+    pg.draw.circle(screen, cool_blue, (700, 512), 25, 7)
 
-    # # Tiger
-    # pg.draw.circle(screen, cools["tiger"], (600, 500), 35)
-    # pg.draw.circle(screen, cools["tiger"], (200, 100), 35)
-    # # Kangaroo
-    # pg.draw.circle(screen, cools["kangaroo"], (500, 500), 35)
-    # pg.draw.circle(screen, cools["kangaroo"], (500, 200), 35)
-    # # Giraffe
-    # pg.draw.circle(screen, cools["giraffe"], (400, 500), 35)
-    # pg.draw.circle(screen, cools["giraffe"], (500, 300), 35)
-    # # Wolf
-    # pg.draw.circle(screen, cools["wolf"], (300, 500), 35)
-    # pg.draw.circle(screen, cools["wolf"], (300, 300), 35)
-    # # Turtle
-    # pg.draw.circle(screen, cools["turtle"], (200, 500), 35)
-    # pg.draw.circle(screen, cools["turtle"], (200, 200), 35)
-    # # Fox
-    # pg.draw.circle(screen, cools["fox"], (200, 400), 35)
-    # pg.draw.circle(screen, cools["fox"], (300, 300), 35)
-    # # Rendeer
-    # pg.draw.circle(screen, cools["rendeer"], (500, 100), 35)
-    # pg.draw.circle(screen, cools["rendeer"], (700, 300), 35)
-    # # Lion
-    # pg.draw.circle(screen, cools["lion"], (500, 300), 35)
-    # pg.draw.circle(screen, cools["lion"], (600, 100), 35)
-    # # Crocodile
-    # pg.draw.circle(screen, cools["crocodile"], (400, 500), 35)
-    # pg.draw.circle(screen, cools["crocodile"], (600, 300), 35)
-    # # Zebra
-    # pg.draw.circle(screen, cools["zebra"], (200, 400), 35)
-    # pg.draw.circle(screen, cools["zebra"], (300, 300), 35)
-    # # Monkey
-    # pg.draw.circle(screen, cools["monkey"], (200, 400), 35)
-    # pg.draw.circle(screen, cools["monkey"], (300, 300), 35)
-    # # Hippo
-    # pg.draw.circle(screen, cools["hippo"], (200, 400), 35)
-    # pg.draw.circle(screen, cools["hippo"], (300, 300), 35)
-    # # Panda
-    # pg.draw.circle(screen, cools["panda"], (200, 400), 35)
-    # pg.draw.circle(screen, cools["panda"], (300, 300), 35)
-    # # Shark
-    # pg.draw.circle(screen, cools["shark"], (200, 400), 35)
-    # pg.draw.circle(screen, cools["shark"], (300, 300), 35)
-    # # Camel
-    # pg.draw.circle(screen, cools["camel"], (200, 400), 35)
-    # pg.draw.circle(screen, cools["camel"], (300, 300), 35)
-    # # Orca
-    # pg.draw.circle(screen, cools["orca"], (200, 400), 35)
-    # pg.draw.circle(screen, cools["orca"], (300, 300), 35)
-    # # Elephant
-    # pg.draw.circle(screen, cools["elephant"], (200, 400), 35)
-    # pg.draw.circle(screen, cools["elephant"], (300, 300), 35)
-    # # Penguin
-    # pg.draw.circle(screen, cools["penguin"], (200, 400), 35)
-    # pg.draw.circle(screen, cools["penguin"], (300, 300), 35)
+    # Tiger
+    pg.draw.circle(screen, cools["tiger"], (600, 512), 25)
+    pg.draw.circle(screen, cools["tiger"], (200, 94), 25)
+    # Kangaroo
+    pg.draw.circle(screen, cools["kangaroo"], (500, 512), 25)
+    pg.draw.circle(screen, cools["kangaroo"], (500, 176), 25)
+    # Giraffe
+    pg.draw.circle(screen, cools["giraffe"], (400, 512), 25)
+    pg.draw.circle(screen, cools["giraffe"], (500, 260), 25)
+    # Wolf
+    pg.draw.circle(screen, cools["wolf"], (300, 512), 25)
+    pg.draw.circle(screen, cools["wolf"], (300, 260), 25)
+    # Turtle
+    pg.draw.circle(screen, cools["turtle"], (200, 512), 25)
+    pg.draw.circle(screen, cools["turtle"], (200, 176), 25)
+    # Fox
+    pg.draw.circle(screen, cools["fox"], (200, 428), 25)
+    pg.draw.circle(screen, cools["fox"], (300, 176), 25)
+    # Rendeer
+    pg.draw.circle(screen, cools["rendeer"], (100, 428), 25)
+    pg.draw.circle(screen, cools["rendeer"], (700, 260), 25)
+    # Lion
+    pg.draw.circle(screen, cools["lion"], (300, 428), 25)
+    pg.draw.circle(screen, cools["lion"], (600, 94), 25)
+    # Crocodile
+    pg.draw.circle(screen, cools["crocodile"], (400, 428), 25)
+    pg.draw.circle(screen, cools["crocodile"], (600, 260), 25)
+    # Zebra
+    pg.draw.circle(screen, cools["zebra"], (500, 428), 25)
+    pg.draw.circle(screen, cools["zebra"], (600, 176), 25)
+    # Monkey
+    pg.draw.circle(screen, cools["monkey"], (600, 428), 25)
+    pg.draw.circle(screen, cools["monkey"], (100, 260), 25)
+    # Hippo
+    pg.draw.circle(screen, cools["hippo"], (700, 428), 25)
+    pg.draw.circle(screen, cools["hippo"], (400, 260), 25)
+    # Panda
+    pg.draw.circle(screen, cools["panda"], (700, 344), 25)
+    pg.draw.circle(screen, cools["panda"], (100, 176), 25)
+    # Shark
+    pg.draw.circle(screen, cools["shark"], (600, 344), 25)
+    pg.draw.circle(screen, cools["shark"], (400, 176), 25)
+    # Camel
+    pg.draw.circle(screen, cools["camel"], (500, 344), 25)
+    pg.draw.circle(screen, cools["camel"], (200, 260), 25)
+    # Orca
+    pg.draw.circle(screen, cools["orca"], (300, 344), 25)
+    pg.draw.circle(screen, cools["orca"], (400, 94), 25)
+    # Elephant
+    pg.draw.circle(screen, cools["elephant"], (200, 344), 25)
+    pg.draw.circle(screen, cools["elephant"], (500, 94), 25)
+    # Penguin
+    pg.draw.circle(screen, cools["penguin"], (100, 344), 25)
+    pg.draw.circle(screen, cools["penguin"], (700, 176), 25)
+    # Ostrich
+    pg.draw.circle(screen, cools["ostrich"], (400, 344), 25)
+    pg.draw.circle(screen, cools["ostrich"], (300, 94), 25)
 
     # Upadte the full surface display
     pg.display.flip()

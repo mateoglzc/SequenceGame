@@ -21,4 +21,5 @@ cools = {
     "penguin": pg.Color(58, 110, 165),
     "black": pg.Color(0, 0, 0),
     "white": pg.Color(255, 255, 255),
+    "ostrich": pg.Color(109, 89, 122)
 }
