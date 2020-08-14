@@ -4,14 +4,15 @@ class Player():
         name
         turn
     '''
+
     # Constructor
 
-    def __init__(self):
-        self.name = ""
-        self.turn = False
+    def __init__(self, name: str = "", turn: bool = False):
+        self.name = name
+        self.turn = turn
+        self.chips = None
 
     def ChangeTurn(self):
-
         if self.turn:
             self.turn = False
         else:

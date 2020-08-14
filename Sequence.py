@@ -1,4 +1,5 @@
 from cool_pgColors import cools
+from Player import Player
 import pygame as pg
 import sys
 
@@ -17,6 +18,25 @@ screen = pg.display.set_mode((screen_w, screen_h))
 # Colors
 cool_grey = pg.Color(108, 117, 125)
 cool_blue = pg.Color(152, 193, 217)
+red = pg.Color("red")
+
+# Chips
+
+
+class Chip():
+
+    def __init__(self, color):
+        self.color = color
+
+    def PlaceChip(self, pos: tuple, screen):
+        return pg.draw.circle(screen, self.color, pos, 10)
+
+
+chips_placed = []
+
+# Player
+player1 = Player("Matt", True)
+player1.chips = Chip((252, 0, 0))
 
 
 # Game loop
@@ -26,7 +46,10 @@ while True:
         if event.type == pg.QUIT:
             pg.quit()
             sys.exit()
-
+        if event.type == pg.MOUSEBUTTONDOWN:
+            pos = pg.mouse.get_pos()
+            print(pos)
+            chips_placed.append(pos)
     screen.fill((237, 242, 244))
 
     # Border Lines
@@ -116,6 +139,10 @@ while True:
     # Ostrich
     pg.draw.circle(screen, cools["ostrich"], (400, 344), 25)
     pg.draw.circle(screen, cools["ostrich"], (300, 94), 25)
+
+    # Place Chips
+    for i in chips_placed:
+        pg.draw.circle(screen, cool_blue, i, 10)
 
     # Upadte the full surface display
     pg.display.flip()
