@@ -48,7 +48,6 @@ while True:
             sys.exit()
         if event.type == pg.MOUSEBUTTONDOWN:
             pos = pg.mouse.get_pos()
-            print(pos)
             chips_placed.append(pos)
     screen.fill((237, 242, 244))
 
