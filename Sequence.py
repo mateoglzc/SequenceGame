@@ -2,6 +2,7 @@ from cool_pgColors import cools
 from Player import Player
 import pygame as pg
 import sys
+import random
 
 # Initialize pg
 pg.init()
@@ -19,6 +20,17 @@ screen = pg.display.set_mode((screen_w, screen_h))
 cool_grey = pg.Color(108, 117, 125)
 cool_blue = pg.Color(152, 193, 217)
 red = pg.Color("red")
+
+# Cards
+deck = ["tiger", "kangaroo", "giraffe", "wolf", "turtle",
+        "fox", "rendeer", "lion", "crocodile", "crocodile", "zebra", "monkey",
+        "hippo", "panda", "shark", "camel", "orca", "elephant", "penguin",
+        "tiger", "kangaroo", "giraffe", "wolf", "turtle",
+        "fox", "rendeer", "lion", "crocodile", "crocodile", "zebra", "monkey",
+        "hippo", "panda", "shark", "camel", "orca", "elephant", "penguin"]
+
+player1_cards = []
+player2_cards = []
 
 # Chips
 
@@ -168,6 +180,14 @@ while True:
         pg.draw.circle(screen, player1.chips.color, i, 10)
     for i in player2_chips:
         pg.draw.circle(screen, player2.chips.color, i, 10)
+
+    # Here go the cards
+    # Give 3 cards to each player in turn 1
+    if turn == 1:
+        pass
+    else:
+        # every turn give each player 1 card
+        pass
 
     # Upadte the full surface display
     pg.display.flip()
