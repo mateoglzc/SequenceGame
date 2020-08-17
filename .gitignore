@@ -1,4 +1,4 @@
 .vscode
 TicTacToe.py
 weird.py
-.pyc
+*.pyc 

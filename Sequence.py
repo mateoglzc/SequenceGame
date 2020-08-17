@@ -32,15 +32,39 @@ class Chip():
         return pg.draw.circle(screen, self.color, pos, 10)
 
 
-chips_placed = []
+player1_chips = []
+player2_chips = []
+chips_placed = [player1_chips, player2_chips]
 
 # Player
-player1 = Player("Matt", True)
-player1.chips = Chip((252, 0, 0))
+player1 = Player("Matt", False)
+player1.chips = Chip((237, 31, 35))
+player2 = Player("Emi", False)
+player2.chips = Chip((73, 159, 104))
+
+turn = 1
+
+
+def turn_decider(turn_num, pos):
+    global turn
+    if player2.turn:
+        player2_chips.append(pos)
+        turn += 1
+    if player1.turn:
+        player1_chips.append(pos)
+        turn += 1
 
 
 # Game loop
 while True:
+
+    if turn % 2 == 0:
+        player2.turn = True
+        player1.turn = False
+    else:
+        player1.turn = True
+        player2.turn = False
+
     # Event checker
     for event in pg.event.get():
         if event.type == pg.QUIT:
@@ -48,7 +72,7 @@ while True:
             sys.exit()
         if event.type == pg.MOUSEBUTTONDOWN:
             pos = pg.mouse.get_pos()
-            chips_placed.append(pos)
+            turn_decider(turn, pos)
     screen.fill((237, 242, 244))
 
     # Border Lines
@@ -140,8 +164,10 @@ while True:
     pg.draw.circle(screen, cools["ostrich"], (300, 94), 25)
 
     # Place Chips
-    for i in chips_placed:
-        pg.draw.circle(screen, cool_blue, i, 10)
+    for i in player1_chips:
+        pg.draw.circle(screen, player1.chips.color, i, 10)
+    for i in player2_chips:
+        pg.draw.circle(screen, player2.chips.color, i, 10)
 
     # Upadte the full surface display
     pg.display.flip()
