@@ -29,8 +29,40 @@ deck = ["tiger", "kangaroo", "giraffe", "wolf", "turtle",
         "fox", "rendeer", "lion", "crocodile", "crocodile", "zebra", "monkey",
         "hippo", "panda", "shark", "camel", "orca", "elephant", "penguin"]
 
+cards_taken = []
+
 player1_cards = []
 player2_cards = []
+
+a = random.randint(0, (len(deck)-1))
+cards_taken.append(a)
+b = random.randint(0, (len(deck)-1))
+while b in cards_taken:
+    b = random.randint(0, (len(deck)-1))
+cards_taken.append(b)
+c = random.randint(0, (len(deck)-1))
+while c in cards_taken:
+    c = random.randint(0, (len(deck)-1))
+cards_taken.append(c)
+
+player1_cards.append(a)
+player1_cards.append(b)
+player1_cards.append(c)
+
+a = random.randint(0, (len(deck)-1))
+cards_taken.append(a)
+b = random.randint(0, (len(deck)-1))
+while b in cards_taken:
+    b = random.randint(0, (len(deck)-1))
+cards_taken.append(b)
+c = random.randint(0, (len(deck)-1))
+while c in cards_taken:
+    c = random.randint(0, (len(deck)-1))
+cards_taken.append(c)
+
+player2_cards.append(a)
+player2_cards.append(b)
+player2_cards.append(c)
 
 # Chips
 
@@ -61,14 +93,28 @@ def turn_decider(turn_num, pos):
     global turn
     if player2.turn:
         player2_chips.append(pos)
+        x = random.randint(0, (len(deck)-1))
+        while x in cards_taken:
+            x = random.randint(0, (len(deck)-1))
+        cards_taken.append(x)
+        player2_cards[2] = x
         turn += 1
     if player1.turn:
         player1_chips.append(pos)
+        x = random.randint(0, (len(deck)-1))
+        while x in cards_taken:
+            x = random.randint(0, (len(deck)-1))
+        cards_taken.append(x)
+        player1_cards[2] = x
         turn += 1
 
 
 # Game loop
 while True:
+
+    if len(cards_taken) == len(deck):
+        pg.quit()
+        sys.exit()
 
     if turn % 2 == 0:
         player2.turn = True
@@ -181,13 +227,13 @@ while True:
     for i in player2_chips:
         pg.draw.circle(screen, player2.chips.color, i, 10)
 
-    # Here go the cards
-    # Give 3 cards to each player in turn 1
-    if turn == 1:
-        pass
-    else:
-        # every turn give each player 1 card
-        pass
+    pg.draw.circle(screen, cools[deck[player1_cards[0]]], (400, 575), 15)
+    pg.draw.circle(screen, cools[deck[player1_cards[1]]], (370, 575), 15)
+    pg.draw.circle(screen, cools[deck[player1_cards[2]]], (430, 575), 15)
+
+    pg.draw.circle(screen, cools[deck[player2_cards[0]]], (30, 300), 15)
+    pg.draw.circle(screen, cools[deck[player2_cards[1]]], (30, 270), 15)
+    pg.draw.circle(screen, cools[deck[player2_cards[2]]], (30, 330), 15)
 
     # Upadte the full surface display
     pg.display.flip()
