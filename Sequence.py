@@ -3,6 +3,7 @@ from Player import Player
 import pygame as pg
 import sys
 import random
+import math
 
 # Initialize pg
 pg.init()
@@ -23,11 +24,13 @@ red = pg.Color("red")
 
 # Cards
 deck = ["tiger", "kangaroo", "giraffe", "wolf", "turtle",
-        "fox", "rendeer", "lion", "crocodile", "crocodile", "zebra", "monkey",
-        "hippo", "panda", "shark", "camel", "orca", "elephant", "penguin",
-        "tiger", "kangaroo", "giraffe", "wolf", "turtle",
-        "fox", "rendeer", "lion", "crocodile", "crocodile", "zebra", "monkey",
-        "hippo", "panda", "shark", "camel", "orca", "elephant", "penguin"]
+        "fox", "rendeer", "lion", "crocodile", "zebra",
+        "monkey", "hippo", "panda", "shark", "camel",
+        "orca", "elephant", "penguin", "ostrich", "tiger",
+        "kangaroo", "giraffe", "wolf", "turtle", "fox",
+        "rendeer", "lion", "crocodile", "zebra", "monkey",
+        "hippo", "panda", "shark", "camel", "orca",
+        "elephant", "penguin", "ostrich"]
 
 cards_taken = []
 
@@ -64,6 +67,119 @@ player2_cards.append(a)
 player2_cards.append(b)
 player2_cards.append(c)
 
+
+def round_up_x(num):
+    num += 50
+    return int(math.floor(num / 100)) * 100
+
+
+def round_up_y(num):
+    if num < 134:
+        return 100
+    if num < 218:
+        return 200
+    if num < 302:
+        return 300
+    if num < 386:
+        return 400
+    if num < 470:
+        return 500
+    if num < 554:
+        return 600
+
+
+def card_picker(x, y):
+    if x == 100:
+        if y == 100:
+            return None
+        if y == 200:
+            return 31
+        if y == 300:
+            return 29
+        if y == 400:
+            return 18
+        if y == 500:
+            return 6
+        if y == 600:
+            return None
+    if x == 200:
+        if y == 100:
+            return 19
+        if y == 200:
+            return 23
+        if y == 300:
+            return 33
+        if y == 400:
+            return 17
+        if y == 500:
+            return 5
+        if y == 600:
+            return 4
+    if x == 300:
+        if y == 100:
+            return 37
+        if y == 200:
+            return 24
+        if y == 300:
+            return 22
+        if y == 400:
+            return 16
+        if y == 500:
+            return 7
+        if y == 600:
+            return 3
+    if x == 400:
+        if y == 100:
+            return 34
+        if y == 200:
+            return 32
+        if y == 300:
+            return 30
+        if y == 400:
+            return 15
+        if y == 500:
+            return 8
+        if y == 600:
+            return 2
+    if x == 500:
+        if y == 100:
+            return 35
+        if y == 200:
+            return 20
+        if y == 300:
+            return 21
+        if y == 400:
+            return 14
+        if y == 500:
+            return 9
+        if y == 600:
+            return 1
+    if x == 600:
+        if y == 100:
+            return 26
+        if y == 200:
+            return 28
+        if y == 300:
+            return 27
+        if y == 400:
+            return 13
+        if y == 500:
+            return 10
+        if y == 600:
+            return 0
+    if x == 700:
+        if y == 100:
+            return None
+        if y == 200:
+            return 36
+        if y == 300:
+            return 25
+        if y == 400:
+            return 12
+        if y == 500:
+            return 11
+        if y == 600:
+            return None
 # Chips
 
 
@@ -93,19 +209,25 @@ def turn_decider(turn_num, pos):
     global turn
     if player2.turn:
         player2_chips.append(pos)
+        card_used = card_picker(round_up_x(pos[0]), round_up_y(pos[1]))
         x = random.randint(0, (len(deck)-1))
         while x in cards_taken:
             x = random.randint(0, (len(deck)-1))
         cards_taken.append(x)
-        player2_cards[2] = x
+        if card_used in player2_cards:
+            card_used_index = player2_cards.index(card_used)
+            player2_cards[card_used_index] = x
         turn += 1
     if player1.turn:
         player1_chips.append(pos)
+        card_used = card_picker(round_up_x(pos[0]), round_up_y(pos[1]))
         x = random.randint(0, (len(deck)-1))
         while x in cards_taken:
             x = random.randint(0, (len(deck)-1))
         cards_taken.append(x)
-        player1_cards[2] = x
+        if card_used in player1_cards:
+            card_used_index = player1_cards.index(card_used)
+            player1_cards[card_used_index] = x
         turn += 1
 
 
@@ -130,6 +252,8 @@ while True:
             sys.exit()
         if event.type == pg.MOUSEBUTTONDOWN:
             pos = pg.mouse.get_pos()
+            # print(round_up_x(pos[0]))
+
             turn_decider(turn, pos)
     screen.fill((237, 242, 244))
 
