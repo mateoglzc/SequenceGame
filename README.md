@@ -17,4 +17,4 @@ Here's a quick tutorial of how this game works:
 There's some bugs that i have found but have no clue how to solve them, if you come across another bug or know how to fix some make sure to send your fix or discovery.
 
 ##### Bugs found
-###### * When placing a chip on a square it may not change the card that you use to place that chip. This happens because cards are given by location not by color. 
+* ###### When placing a chip on a square it may not change the card that you use to place that chip. This happens because cards are given by location not by color. 
