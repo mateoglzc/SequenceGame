@@ -4,7 +4,7 @@ This is a biginner Sequence game made in Python using the Pygame library. It's n
 I'm all about learning so feel free to send fixes and optimizations.
 
 ##  How to play
-Heres a quick tutorial of how this game works>
+Heres a quick tutorial of how this game works:
 
 * First of all it requieres two players.
 * At the start of the game each player is given three cards that are represented by dots located on the botton and left side. 
